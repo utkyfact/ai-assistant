@@ -1,0 +1,397 @@
+:root {
+    --primary-color: #4CAF50;
+    --secondary-color: #2196F3;
+    --accent-color: #FF4081;
+    --background-color: #f8f9fa;
+    --text-color: #333;
+    --card-background: #ffffff;
+    --border-color: #ddd;
+}
+
+/* dark mod renkleri */
+[data-theme="dark"] {
+    --background-color: #1a1a1a;
+    --text-color: #ffffff;
+    --card-background: #2d2d2d;
+    --border-color: #404040;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+/* Pop-up */
+.popup {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    padding: 20px 0px;
+}
+
+.popup.show {
+    display: flex;
+}
+
+.popup-content {
+    background: var(--card-background);
+    color: var(--text-color);
+    padding: 30px;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 500px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    position: relative;
+    overflow-y: auto;
+    animation: slideIn 0.3s ease-out;
+    background: linear-gradient(145deg, #ffffff, #f5f5f5);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(-20px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* dinleme butonu efekti */
+#start-btn.listening {
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(76, 175, 80, 0.4);
+    }
+
+    70% {
+        box-shadow: 0 0 0 10px rgba(76, 175, 80, 0);
+    }
+
+    100% {
+        box-shadow: 0 0 0 0 rgba(76, 175, 80, 0);
+    }
+}
+
+/* kapatma butonu */
+.close-btn {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: 24px;
+    cursor: pointer;
+    color: #555;
+}
+
+.close-btn:hover {
+    color: red;
+}
+
+/* açma butonu */
+#open-popup-btn {
+    display: block;
+    margin: 40px auto;
+    padding: 12px 25px;
+    font-size: 18px;
+    background: #007bff;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+}
+
+#open-popup-btn:hover {
+    background: #0056b3;
+}
+
+
+h1,
+h2 {
+    color: var(--text-color);
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+p {
+    color: var(--text-color);
+    font-size: 16px;
+    text-align: center;
+}
+
+/* todo listesi */
+.todos-section {
+    margin-top: 20px;
+}
+
+.todos-section ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    text-align: left;
+}
+
+.todos-section li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #cadbec;
+    color: var(--text-color);
+    border: 1px solid var(--border-color);
+    margin: 8px 0;
+    padding: 10px 15px;
+    border-radius: 5px;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.todos-section li:hover {
+    transform: scale(1.02);
+}
+
+.todos-section li span {
+    flex-grow: 1;
+}
+
+/* silme ve düzenleme butonları */
+.todos-section li button {
+    border: none;
+    background: none;
+    cursor: pointer;
+    margin-left: 10px;
+    color: #555;
+    font-size: 18px;
+}
+
+.todos-section li button:hover {
+    color: #007bff;
+}
+
+/* silme efekti */
+.todos-section li.fade-out {
+    opacity: 0;
+    transform: scale(0.95);
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+
+/* hava durumu bölümü */
+.weather-section {
+    margin-top: 20px;
+    text-align: center;
+    color: var(--text-color);
+}
+
+button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+#output {
+    margin-top: 20px;
+    padding: 10px 0px;
+    /* border: 1px solid #ccc; */
+    border-radius: 5px;
+    background: var(--card-background);
+    color: var(--text-color);
+    border-color: var(--border-color);
+}
+
+.command {
+    font-size: 12px;
+    color: var(--text-color);
+    opacity: 0.7; 
+    margin: 0;
+    padding: 0;
+    display: block;
+}
+
+/* komut listesi bölümü */
+.commands-section {
+    margin: 20px 0;
+    padding: 15px;
+    background: #f8f9fa;
+    border-radius: 10px;
+}
+
+.command-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.command-item {
+    display: flex;
+    align-items: center;
+    padding: 12px;
+    background: var(--card-background);
+    color: var(--text-color);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease;
+}
+
+.command-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.command-item i {
+    font-size: 20px;
+    margin-right: 10px;
+    color: var(--primary-color, #4CAF50);
+}
+
+.command-item span {
+    font-size: 14px;
+    color: var(--text-color);
+}
+
+.commands-title {
+    color: black;
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+/* tema değiştirme butonu */
+.theme-toggle {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+}
+
+.theme-toggle button {
+    background: none;
+    border: none;
+    font-size: 20px;
+    color: #555;
+    cursor: pointer;
+    padding: 5px;
+    transition: transform 0.2s ease;
+}
+
+.theme-toggle button:hover {
+    transform: scale(1.1);
+}
+
+/* ses görselleştirici */
+.voice-visualizer {
+    width: 100%;
+    height: 60px;
+    margin: 20px 0;
+    background: #f0f0f0;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+#visualizer {
+    width: 100%;
+    height: 100%;
+}
+
+/* dinleme animasyonu */
+#start-btn.listening {
+    background: #ff4081;
+    animation: pulseAnimation 1.5s infinite;
+}
+
+#status {
+    color: var(--text-color);
+}
+
+@keyframes pulseAnimation {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(255, 64, 129, 0.4);
+    }
+
+    70% {
+        transform: scale(1.05);
+        box-shadow: 0 0 0 10px rgba(255, 64, 129, 0);
+    }
+
+    100% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(255, 64, 129, 0);
+    }
+}
+
+/* karanlık mod renkleri */
+[data-theme="dark"] {
+    --background-color: #1a1a1a;
+    --text-color: #ffffff;
+    --card-background: #2d2d2d;
+    --border-color: #404040;
+}
+
+[data-theme="dark"] .popup-content {
+    background: var(--card-background);
+    color: var(--text-color);
+}
+
+[data-theme="dark"] .command-item {
+    background: #333;
+    color: #fff;
+}
+
+[data-theme="dark"] .command-item span {
+    color: #ddd;
+}
+
+[data-theme="dark"] .command-item span {
+    color: #fff;
+}
+
+[data-theme="dark"] #output {
+    background: var(--card-background);
+    border-color: var(--border-color);
+}
+
+[data-theme="dark"] button {
+    background-color: #2196F3;
+}
+
+[data-theme="dark"] button:hover {
+    background-color: #1976D2;
+}
+
+
+@media (max-width: 768px) {
+    .command-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .popup-content {
+        width: 95%;
+        padding: 20px;
+    }
+
+    .command-item {
+        padding: 10px;
+    }
+}

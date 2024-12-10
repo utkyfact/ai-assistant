@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Assistant</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- Pop-up Açma Butonu -->
+    <button id="open-popup-btn">Open AI Assistant</button>
+
+    <!-- Pop-up Yapısı -->
+    <div class="popup" id="popup-container">
+        <div class="popup-content">
+            <!-- Tema değiştirme butonu -->
+            <div class="theme-toggle">
+                <button id="theme-btn"><i class="fas fa-moon"></i></button>
+            </div>
+
+            <!-- Komut listesi -->
+            <div class="commands-section">
+                <h3 class="commands-title">Commands</h3>
+                <div class="command-grid">
+                    <div class="command-item">
+                        <i class="fas fa-clock"></i>
+                        <span>"What's the time?"</span>
+                    </div>
+                    <div class="command-item">
+                        <i class="fas fa-cloud-sun"></i>
+                        <span>"What's the weather?"</span>
+                    </div>
+                    <div class="command-item">
+                        <i class="fas fa-tasks"></i>
+                        <span>"Add todo ..."</span>
+                    </div>
+                    <div class="command-item">
+                        <i class="fas fa-laugh"></i>
+                        <span>"Tell me a joke"</span>
+                    </div>
+                    <div class="command-item">
+                        <i class="fa-brands fa-google"></i>
+                        <span>"open google"</span>
+                    </div>
+                    <div class="command-item">
+                        <i class="fa-solid fa-music"></i>
+                        <span>"play music / stop music"</span>
+                    </div>
+                    <div class="command-item">
+                        <i class="fa-solid fa-language"></i>
+                        <span>"translate"</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Ses görselleştirici -->
+            <div id="output" class="voice-visualizer">
+                <canvas id="visualizer"></canvas>
+            </div>
+
+            <span id="close-popup-btn" class="close-btn">&times;</span>
+            <h1>My AI Assistant</h1>
+            <button id="start-btn">Start Listening</button>
+            <p id="status">Press the button and speak...</p>
+            <!-- <div id="output"></div> -->
+
+            <!-- Yapılacaklar listesi -->
+            <div class="todos-section">
+                <h2>Your To-Do List</h2>
+                <ul id="todo-list"></ul>
+            </div>
+
+            <!-- Hava durumu bilgisi -->
+            <div class="weather-section">
+                <h2>Weather Information</h2>
+                <p id="weather-info">Ask for the weather to see the information here.</p>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <script src="https://kit.fontawesome.com/15112f395e.js" crossorigin="anonymous"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>

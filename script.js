@@ -14,7 +14,7 @@ let todos = JSON.parse(localStorage.getItem('todos')) || [];
 const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
 
 if (!SpeechRecognition) {
-    status.textContent = "Web Speech API desteklenmiyor.";
+    status.textContent = "Web Speech API is not supported.";
 } else {
     const recognition = new SpeechRecognition();
     recognition.lang = 'en-US'; // 'tr-TR'
@@ -70,15 +70,16 @@ function processCommand(command) {
         output.textContent = "Opening Google...";
     } else if (command.includes("tell me a joke")) {
         getRandomJoke();
-    }
-    else if (command.includes("play music")) {
+    } else if (command.includes("thank you")){
+        output.textContent = "Anytime.";
+    } else if (command.includes("play music")) {
         playBackgroundMusic();
-    }else if (command.includes("stop music")) {
+    } else if (command.includes("stop music")) {
         stopBackgroundMusic();
-    }else if (command.includes("translate")) {
+    } else if (command.includes("translate")) {
         const text = command.replace("translate", "").trim();
         translateText(text);
-    }else {
+    } else {
         output.textContent = `I didn't understand: "${command}"`;
     }
 }
@@ -102,12 +103,12 @@ async function translateText(text) {
 
         const data = await response.json();
         if (data.data && data.data.translations) {
-            output.textContent = `Çeviri: ${data.data.translations[0].translatedText}`;
+            output.textContent = `Translation: ${data.data.translations[0].translatedText}`;
         } else {
-            output.textContent = "Çeviri yapılırken bir hata oluştu.";
+            output.textContent = "An error occurred while translating.";
         }
     } catch (error) {
-        output.textContent = "Çeviri servisi şu anda kullanılamıyor.";
+        output.textContent = "The translation service is currently unavailable.";
     }
 }
 
@@ -165,7 +166,7 @@ function getWeather() {
                             const cityName = data.name;
                             weatherInfo.textContent = `Weather in ${cityName} is ${description} with temperature of ${temperature}°C`;
                         } else {
-                            weatherInfo.textContent = "Hava durumu verileri alınamadı.";
+                            weatherInfo.textContent = "Weather data could not be retrieved.";
                         }
                     })
             }
@@ -181,9 +182,10 @@ async function getRandomJoke() {
         const data = await response.json();
         output.textContent = data.type === 'single' ? data.joke : `${data.setup} ... ${data.delivery}`;
     } catch (error) {
-        output.textContent = "Üzgünüm, şu anda şaka anlatamıyorum.";
+        output.textContent = "Sorry, I can't tell jokes right now.";
     }
 }
+
 
 // todo
 function updateTodoList() {

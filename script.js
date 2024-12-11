@@ -164,9 +164,9 @@ function getWeather() {
                             const temperature = data.main.temp;
                             const description = data.weather[0].description;
                             const cityName = data.name;
-                            weatherInfo.textContent = `Weather in ${cityName} is ${description} with temperature of ${temperature}°C`;
+                            output.textContent = `Weather in ${cityName} is ${description} with temperature of ${temperature}°C`;
                         } else {
-                            weatherInfo.textContent = "Weather data could not be retrieved.";
+                            output.textContent = "Weather data could not be retrieved.";
                         }
                     })
             }

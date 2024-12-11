@@ -8,7 +8,6 @@
     --border-color: #ddd;
 }
 
-/* dark mod renkleri */
 [data-theme="dark"] {
     --background-color: #1a1a1a;
     --text-color: #ffffff;
@@ -191,12 +190,12 @@ p {
 }
 
 /* hava durumu bölümü */
-.weather-section {
+/* .weather-section {
     margin-top: 20px;
     text-align: center;
     color: var(--text-color);
     padding-bottom: 16px;
-}
+} */
 
 button {
     background-color: #007bff;

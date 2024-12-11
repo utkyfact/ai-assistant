@@ -138,6 +138,7 @@ p {
 /* todo listesi */
 .todos-section {
     margin-top: 20px;
+    padding-bottom: 26px;
 }
 
 .todos-section ul {

@@ -59,6 +59,14 @@ function processCommand(command) {
         } else {
             output.textContent = "Please specify what to add to your to-do list.";
         }
+    } else if (command.includes("delete to do") ){
+        const todoItem = command.replace("delete to do", "").trim();
+        if (todoItem) {
+            todos.splice(todoItem, 1);
+            saveToLocalStorage();
+            updateTodoList();
+            output.textContent = `Deleted from your to-do list: "${todoItem}"`;
+        }
     } else if (command.includes("show to do")) {
         if (todos.length === 0) {
             output.textContent = "Your to-do list is empty.";

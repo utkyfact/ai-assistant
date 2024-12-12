@@ -72,11 +72,13 @@ function processCommand(command) {
         getRandomJoke();
     } else if (command.includes("thank you")){
         output.textContent = "Anytime.";
-    } else if (command.includes("play music")) {
+    } else if (command.includes("play music")){
         playBackgroundMusic();
-    } else if (command.includes("stop music")) {
+    } else if (command.includes("stop music")){
         stopBackgroundMusic();
-    } else if (command.includes("translate")) {
+    } else if (command.includes("change mode")){
+        toggleTheme();
+    } else if (command.includes("translate")){
         const text = command.replace("translate", "").trim();
         translateText(text);
     } else {
@@ -265,23 +267,22 @@ popupContainer.addEventListener('click', (event) => {
 const themeBtn = document.getElementById('theme-btn');
 const themeIcon = themeBtn.querySelector('i');
 
-themeBtn.addEventListener('click', () => {
+themeBtn.addEventListener('click', toggleTheme);
+
+function toggleTheme() {
     const currentTheme = document.body.getAttribute('data-theme');
-    
     if (currentTheme === 'dark') {
         document.body.removeAttribute('data-theme');
         themeIcon.classList.remove('fa-sun');
         themeIcon.classList.add('fa-moon');
         localStorage.setItem('theme', 'light');
     } else {
-
         document.body.setAttribute('data-theme', 'dark');
         themeIcon.classList.remove('fa-moon');
         themeIcon.classList.add('fa-sun');
         localStorage.setItem('theme', 'dark');
     }
-});
-
+}
 
 document.addEventListener('DOMContentLoaded', () => {
     const savedTheme = localStorage.getItem('theme');

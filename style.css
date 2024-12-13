@@ -258,10 +258,6 @@ button:hover {
     transition: transform 0.2s ease;
 }
 
-.command-item:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
-}
 
 .command-item i {
     font-size: 20px;

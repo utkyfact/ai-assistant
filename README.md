@@ -22,7 +22,7 @@ This project is a web-based voice assistant application. Users can perform vario
 1. Clone the project:
 
    ```bash
-   git clone https://github.com/username/ai-voice-assistant.git
+   git clone https://github.com/utkyfact/ai-voice-assistant.git
    ```
    
 2. Navigate to the project directory:
